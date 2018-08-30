@@ -4,11 +4,11 @@ import scala.scalajs.js
 import scala.scalajs.js.|
 
 //TODO - consider implementing buffer type
-trait TrackerOptions {
-  val infoHash: js.UndefOr[String] = js.undefined
-  val peerId: js.UndefOr[String] = js.undefined
+trait TrackerOpts {
+  val infoHash: JSString = js.undefined
+  val peerId: JSString = js.undefined
   val announce: js.UndefOr[String | js.Array[String]] = js.undefined
-  val port: js.UndefOr[Int] = js.undefined
+  val port: JSInt = js.undefined
   val getAnnounceOpts: js.UndefOr[js.Function0[js.Object]] = js.undefined
 }
 

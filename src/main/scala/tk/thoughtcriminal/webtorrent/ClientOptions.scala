@@ -5,12 +5,12 @@ import scala.scalajs.js.|
 
 //TODO - consider supporting Buffer type
 trait ClientOptions extends js.Object {
-  val maxConns: js.UndefOr[Int] = js.undefined
-  val nodeId: js.UndefOr[String] = js.undefined
-  val peerId: js.UndefOr[String] = js.undefined
-  val tracker: js.UndefOr[Boolean | js.Object] = js.undefined
+  val maxConns: JSInt = js.undefined
+  val nodeId: JSString = js.undefined
+  val peerId: JSString = js.undefined
+  val tracker: js.UndefOr[Boolean | TrackerOpts] = js.undefined
   val dht: js.UndefOr[Boolean | js.Object] = js.undefined
-  val webSeeds: js.UndefOr[Boolean] = js.undefined
+  val webSeeds: JSBoolean = js.undefined
 }
 
 
