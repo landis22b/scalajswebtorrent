@@ -1,18 +1,18 @@
-package tk.thoughtcriminal.webtorrent
+package tk.thoughtcriminal.webtorrent.opts
+
 
 import scala.scalajs.js
 import scala.scalajs.js.|
 
 //TODO - consider supporting Buffer type
-trait ClientOptions extends js.Object {
+trait ClientOpts extends js.Object {
   val maxConns: JSInt = js.undefined
   val nodeId: JSString = js.undefined
   val peerId: JSString = js.undefined
   val tracker: js.UndefOr[Boolean | TrackerOpts] = js.undefined
-  val dht: js.UndefOr[Boolean | js.Object] = js.undefined
+  val dht: js.UndefOr[Boolean | DHTOpts] = js.undefined
   val webSeeds: JSBoolean = js.undefined
 }
-
 
 //{
 //  maxConns: Number,        // Max number of connections per torrent (default=55)

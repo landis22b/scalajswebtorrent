@@ -4,13 +4,15 @@ lazy val root = project
   .settings(
     inThisBuild(List(
       organization := "tk.thoughtcriminal",
-      version      := "0.1-SNAPSHOT",
+      version := "0.1-SNAPSHOT",
       scalaVersion := "2.12.6"
     )),
     name := "ScalaJSWebTorrent",
+    resolvers += "jitpack" at "https://jitpack.io",
     libraryDependencies ++= Seq(
-      "org.scala-js"  %%% "scalajs-dom"    % "0.9.5",
-      "org.scalatest" %%% "scalatest"      % "3.0.5"    % "test"
+      "org.scala-js" %%% "scalajs-dom" % "0.9.5",
+      "com.github.scalajs-io" % "nodejs" % "master-SNAPSHOT",
+      "org.scalatest" %%% "scalatest" % "3.0.5" % "test"
     ),
     scalaJSUseMainModuleInitializer := true
   )
@@ -21,8 +23,8 @@ resourceGenerators in Compile += Def.task {
   val source = (resourceDirectory in Compile).value / "index.html"
   val target = (resourceManaged in Compile).value / "index-dev.html"
 
-  val fullFileName = (artifactPath in (Compile, fullOptJS)).value.getName
-  val fastFileName = (artifactPath in (Compile, fastOptJS)).value.getName
+  val fullFileName = (artifactPath in(Compile, fullOptJS)).value.getName
+  val fastFileName = (artifactPath in(Compile, fastOptJS)).value.getName
 
   IO.writeLines(target,
     IO.readLines(source).map {
